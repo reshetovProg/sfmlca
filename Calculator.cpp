@@ -1,43 +1,34 @@
 #include <SFML/Graphics.hpp>
 
+
 #include "Config.h"
 #include "Calculator.h"
+
 
 Calculator::Calculator()
 	:window(WINDOW_SIZE, "Calculator")
 {
-
-	if (!font.loadFromFile("ariblk.ttf"))
-	{
-		//error
-	}
-	text.setFont(font);
-	text.setString("+");
-	
-	text.setCharacterSize(24); 
-	text.setFillColor(sf::Color::White);
-	text.setPosition(sf::Vector2f(10, 10));
-	
-	
 	for (int i = 1; i < 6; i++) {
 		for (int j = 0; j < 4; j++) {
-			sf::RectangleShape btn(buttonSize);
+			Button btn(buttonSize);
 			if (i > 1 && j == 3) {
 				btn.setFillColor(colorFillOrangeButton);
 				btn.setOutlineColor(colorOutlineOrangeButton);
-				btn.setOutlineThickness(tricknessSize/2);
+				btn.setOutlineThickness(tricknessSize / 2);
 			}
 			else {
 				btn.setFillColor(colorFillButton);
 				btn.setOutlineColor(colorOutlineButton);
 				btn.setOutlineThickness(tricknessSize);
 			}
-			
-			btn.setPosition(sf::Vector2f(j * (buttonSize.x+ tricknessSize), 
-										i * (buttonSize.y + tricknessSize)));
+			btn.setString("+");
+			btn.setPosition(sf::Vector2f(j * (buttonSize.x + tricknessSize),
+				i * (buttonSize.y + tricknessSize)));
 			keyboard.push_back(btn);
 		}
+
 	}
+	
 }
 
 void Calculator::run()
@@ -68,8 +59,7 @@ void Calculator::render()
 {
 	window.clear(colorOutlineButton);
 	for (auto i : keyboard) {
-		window.draw(i);
+		i.draw(window);
 	}
-	window.draw(text);
 	window.display();
 }

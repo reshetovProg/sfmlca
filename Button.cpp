@@ -3,20 +3,20 @@
 #include "Config.h"
 #include "Button.h"
 
-Button::Button(std::string text, sf::Vector2f position, sf::Vector2f size)
+Button::Button(sf::Vector2f size)
 	:shape(size)
 {
 	if (!font.loadFromFile("ariblk.ttf"))
 	{
 		//error
 	}
-	this->text.setFont(font);
-	this->text.setString(text);
-
 	this->text.setCharacterSize(24);
 	this->text.setFillColor(sf::Color::White);
-	this->text.setPosition(position);
 
+}
+
+void Button::setString(std::string str) {
+	this->text.setString(str);
 }
 
 void Button::setFillColor(sf::Color color)
@@ -29,7 +29,7 @@ void Button::setOutlineColor(sf::Color color)
 	shape.setOutlineColor(color);
 }
 
-void Button::setOutlineTrickness(int size)
+void Button::setOutlineThickness(int size)
 {
 	shape.setOutlineThickness(size);
 }
@@ -42,6 +42,9 @@ void Button::setPosition(sf::Vector2f position)
 
 void Button::draw(sf::RenderWindow& window)
 {
+
+	this->text.setFont(font);
 	window.draw(shape);
 	window.draw(text);
+	
 }

@@ -1,13 +1,14 @@
 #pragma once
-
+#include "Button.h"
 class Calculator
 {
 private:
 	sf::RenderWindow window;
-	std::vector<sf::RectangleShape> keyboard;
+	//std::vector<sf::RectangleShape> keyboard;
 
 	sf::Text text;
 	sf::Font font;
+	std::vector<Button> keyboard;
 //	sf::RectangleShape rectangle;
 public:
 	Calculator();
