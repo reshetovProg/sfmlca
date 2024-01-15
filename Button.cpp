@@ -11,6 +11,7 @@ Button::Button(sf::Vector2f size)
 		//error
 	}
 	this->text.setCharacterSize(30);
+
 	this->text.setFillColor(sf::Color::White);
 
 }
@@ -19,8 +20,33 @@ void Button::setString(std::string str) {
 	this->text.setString(str);
 }
 
+sf::Vector2f Button::getPos()
+{
+	return shape.getPosition();
+}
+
+sf::Color Button::getOutlineColor()
+{
+	return shape.getOutlineColor();
+}
+
+std::string Button::getString()
+{
+	return text.getString();
+}
+
+sf::Color Button::getColor()
+{
+	return color;
+}
+
 void Button::setFillColor(sf::Color color)
 {
+	if (flagDefColor) {
+		this->color = color;
+		flagDefColor = false;
+	}
+		
 	shape.setFillColor(color);
 }
 

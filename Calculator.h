@@ -10,7 +10,9 @@ private:
 											{"4","5","6","-"},
 											{"1","2","3","*"},
 											{".","0","=","/"} };
-
+	sf::String stringField = "0";
+	sf::Text textField;
+	sf::Font fontField;
 public:
 	Calculator();
 	void run();
