@@ -21,7 +21,7 @@ Calculator::Calculator()
 				btn.setOutlineColor(colorOutlineButton);
 				btn.setOutlineThickness(tricknessSize);
 			}
-			btn.setString("+");
+			btn.setString(keyboardSymbols[i-1][j]);
 			btn.setPosition(sf::Vector2f(j * (buttonSize.x + tricknessSize),
 				i * (buttonSize.y + tricknessSize)));
 			keyboard.push_back(btn);

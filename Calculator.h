@@ -4,12 +4,13 @@ class Calculator
 {
 private:
 	sf::RenderWindow window;
-	//std::vector<sf::RectangleShape> keyboard;
-
-	sf::Text text;
-	sf::Font font;
 	std::vector<Button> keyboard;
-//	sf::RectangleShape rectangle;
+	std::string keyboardSymbols[5][4] = {   {"C","CE","X^2","X^Y"},
+											{"7","8","9","+"},
+											{"4","5","6","-"},
+											{"1","2","3","*"},
+											{".","0","=","/"} };
+
 public:
 	Calculator();
 	void run();

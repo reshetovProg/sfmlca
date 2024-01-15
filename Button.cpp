@@ -10,7 +10,7 @@ Button::Button(sf::Vector2f size)
 	{
 		//error
 	}
-	this->text.setCharacterSize(24);
+	this->text.setCharacterSize(30);
 	this->text.setFillColor(sf::Color::White);
 
 }
@@ -36,8 +36,11 @@ void Button::setOutlineThickness(int size)
 
 void Button::setPosition(sf::Vector2f position)
 {
+	sf::Vector2f posText(position);
+	posText.x += (shape.getSize().x)/2 - (text.getCharacterSize()/1.5 * text.getString().getSize()) / 2 ;
+	posText.y += (shape.getSize().y)/2-(text.getCharacterSize())/2;
 	shape.setPosition(position);
-	text.setPosition(position);
+	text.setPosition(posText);
 }
 
 void Button::draw(sf::RenderWindow& window)
